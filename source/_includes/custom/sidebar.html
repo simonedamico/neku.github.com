@@ -1,0 +1,32 @@
+<!-- Logo -->
+<aside id="logo" class="clearfix">
+  <div class="clearfix">
+    <a href="{{ root_url}}/">{{ site.title }}</a>
+  </div>
+</aside>
+
+<ul id="menu">
+{% if site.title %}
+  <li class="title">
+    <h1 id="title"><a href="{{ root_url }}/">{{ site.title }}</a></h1>
+  </li>
+{% endif %}
+{% if site.subtitle %}
+  <li class="subtitle">
+    <h2 id="subtitle">{{ site.subtitle }}</h2>
+  </li>
+{% endif %}
+{% if site.twitter_user %}
+  <li class="link">
+    <a href="http://twitter.com/{{ site.twitter_user }}/">twitter</a>
+  </li>
+{% endif %}
+{% if site.github_user and site.github_show_profile_link %}
+  <li class="link">
+    <a href="http://github.com/{{ site.github_user }}/">github</a>
+  </li>
+{% endif %}
+  <li class="link rss">
+    <a href="/atom.xml">rss feed</a>
+  </li>
+</ul>
