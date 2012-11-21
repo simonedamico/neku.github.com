@@ -18,8 +18,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://stirredbits.comblog/categories/ios">
-  <link href="/favicon.ico" rel="icon">
+  <link rel="canonical" href="http://stirredbits.comblog/categories/ios/">
+  <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
@@ -45,40 +45,62 @@
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Stirred bits</a></h1>
-  
-    <h2>Stirred toughts from a shaken entrapreneur.</h2>
-  
-</hgroup>
+<body >
+  <header role="banner" id="sidebar">
+    <!-- Logo -->
+<aside id="logo" class="clearfix">
+  <div class="clearfix">
+    <a href="/">Stirred bits</a>
+  </div>
+</aside>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:stirredbits.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+<ul id="menu">
+
+  <li class="title">
+    <h1 id="title"><a href="/">Stirred bits</a></h1>
+  </li>
+
+
+  <li class="subtitle">
+    <h2 id="subtitle">Stirred toughts from a shaken entrapreneur.</h2>
+  </li>
+
+
+  <li class="link">
+    <a href="http://twitter.com/damicosimone/">twitter</a>
+  </li>
+
+
+  <li class="link">
+    <a href="http://github.com/neku/">github</a>
+  </li>
+
+  <li class="link rss">
+    <a href="/atom.xml">rss feed</a>
+  </li>
 </ul>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article role="article">
+  </header>
+  <section id="main">
+    <div>
+<article role="article" class="post">
+  
+    <div class="sharing-box">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://stirredbits.comblog/categories/ios/index.html" data-via="damicosimone" data-counturl="http://stirredbits.comblog/categories/ios/index.html" data-size="large">Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+  <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
   
   <header>
-    <h1 class="entry-title">Category: iOS</h1>
+    <h2 class="entry-title">Category: iOS</h2>
     
   </header>
   
@@ -108,103 +130,12 @@
 
 </div>
 
-<aside class="sidebar">
+    <nav role="navigation" id="pagination">
+
+</nav>
+  </section>
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2012/11/21/bootstrapping-chef-server-in-vagrant/">Bootstrapping chef server in Vagrant</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/14/how-to-change-a-git-submodule-url/">How to change a git submodule URL</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/02/18/book-review-programming-ios-4/">Book review: Programming iOS 4</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/02/10/embracing-imperfection/">Embracing Imperfection</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/01/19/hello-world/">Hello, World!</a>
-      </li>
-    
-  </ul>
-</section>
 
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("damicosimone", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/damicosimone" class="twitter-follow-button" data-show-count="false">Follow @damicosimone</a>
-  
-</section>
-
-
-<section>
-  <h1>Github Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/neku">@neku</a> on Github
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'neku',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-<section>
-  <h1>About Me</h1>
-  <img src="/images/me.jpg" width="150" height="150">
-  <p>I'm Simone D'Amico, 21.<br>
-	 I work at Metwit as COO.</p>
-</section>
-
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Simone D'Amico -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
   
 
 <script type="text/javascript">
@@ -252,7 +183,6 @@
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
-
 
 
 
