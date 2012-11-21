@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: book review | Stirred bits]]></title>
+  <link href="http://stirredbits.com/blog/categories/book-review/atom.xml" rel="self"/>
+  <link href="http://stirredbits.com/"/>
+  <updated>2012-11-21T19:11:56+01:00</updated>
+  <id>http://stirredbits.com/</id>
+  <author>
+    <name><![CDATA[Simone D'Amico]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Book review: Programming iOS 4]]></title>
+    <link href="http://stirredbits.com/blog/2012/02/18/book-review-programming-ios-4/"/>
+    <updated>2012-02-18T12:36:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/02/18/book-review-programming-ios-4</id>
+    <content type="html"><![CDATA[<p>"Programming iOS 4" by Matt Neuburg is the best book about iOS SDK out there.</p>
+
+<p>If you find yourself lost in the official Apple documentation, this book can be your final glimmer of hope.<br/>
+The book is intended for intermediate programmers that already has some notions about OOP and, at least, a little of experience with C.</p>
+
+<p><a href="http://www.amazon.com/gp/product/1449388434/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=stirbits-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449388434"><img src="http://akamaicovers.oreilly.com/images/0636920010258/lrg.jpg" width="250" height="328"></a></p>
+
+<p>The book is divided in 6 section:</p>
+
+<ul>
+<li>The first section begins with a providential revise of basic C syntax (trust me, you need it, especially if you too accustomed to an high-level language). The other chapters in this section are dedicated to a basic OOP introduction and finally to an in-depth analysis of obj-c syntax.</li>
+<li>The second section is an introduction to XCode. It explores the tools for debugging, getting documentation and design the GUI for the app. Next it explains how to get a developer certificate to sign apps and run them on real devices, and what are the procedures to follow if you want to get published in the App store.</li>
+<li>The third sections is about Cocoa. It shows the basic types used around the framework and how to manually manage the memory (in iOS 5 the new mechanism, ARC, allows a semi-automatic management). Then it illustrates the major design-patterns you need to understand, once you got them it's all downhill.</li>
+<li>The 4th part it's all dedicated to views and animations. My suggestion it's to skip that on first reading of the book because it's really tough to get for a novice.</li>
+<li>The 5th part presents the basic controllers. You really need to understand this part before starting to write apps. However I have to admit the ViewControllers are covered best in other books I read before.</li>
+<li>The 6th part is definitely the worst. It explores some common frameworks in the sdk, but often it's very superficial and useless. I suggest to completely skip this section and read about frameworks in their official documentation.</li>
+<li>The last part is indeed one of most useful: it covers basic networking, threads and asynchronous programming, json and xml parsing.</li>
+</ul>
+
+
+<p>Definitely a must have for every iOS programmer, I can't wait for the next edition.</p>
+
+<p>Score: <strong><em>4/5</em></strong></p>
+]]></content>
+  </entry>
+  
+</feed>

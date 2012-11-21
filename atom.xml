@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Stirred bits]]></title>
+  <link href="http://stirredbits.com/atom.xml" rel="self"/>
+  <link href="http://stirredbits.com/"/>
+  <updated>2012-11-21T19:11:56+01:00</updated>
+  <id>http://stirredbits.com/</id>
+  <author>
+    <name><![CDATA[Simone D'Amico]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bootstrapping chef server in Vagrant]]></title>
+    <link href="http://stirredbits.com/blog/2012/11/21/bootstrapping-chef-server-in-vagrant/"/>
+    <updated>2012-11-21T17:48:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/11/21/bootstrapping-chef-server-in-vagrant</id>
+    <content type="html"><![CDATA[<p>Installing a <a href="http://opscode.com">chef</a> server for learning  porpoise could be quite an annoying task.<br/>
+Dear devops fellows, fear no more, in our rescue come <a href="http://vagrantup.com">Vagrant</a> a very nice tool that let us spawn and manage virtual machines through Virtual box. <br/>
+Cherry on the cake? It integrates easily with chef: you can either specify a cookbook path and a runlist or a proper chef server.</p>
+
+<p>On my <a href="https://github.com/Neku/vagrant-chef-server-bootstrap">github repo</a> you can find a vagrant project to bootstrap a chef server though chef solo (inception :P) with the latest cookbooks available at opscode.<br/>
+A simple <code>vagrant up</code> and you have a chef-server ready to play with.</p>
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to change a git submodule URL]]></title>
+    <link href="http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url/"/>
+    <updated>2012-03-14T18:50:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url</id>
+    <content type="html"><![CDATA[<p>Let me save you some headache today: if you&#8217;re like me, you really <em>do</em> like keeping your git repo neat and clean using submodules for third party libraries. (Especially if the language you&#8217;re using doesn&#8217;t have something like CPAN or rubygem)</p>
+
+<p>Everything runs perfect untill you have to change one submodule URL.<br/>
+For istance: your submodule is a github repo and you can&#8217;t wait for your pull request to been accepted, so you press the fork button and commit the patch in your private repo. Now what?</p>
+
+<p>Let &#8216;yourproject&#8217; be your git working directory, &#8216;supercoolib&#8217; the submodule and &#8216;yourusername&#8217; your github username. Open with an editor of your choice (in my case emacs) the .gitmodules file (usually is located at the root of the repo):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd yourproject
+</span><span class='line'>$ emacs .gitmodule</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should see something like this:</p>
+
+<blockquote><p>[submodule &#8220;supercoolib&#8221;]<br/>           path = lib/supercoolib<br/>           url = https://github.com/anotherusername/supercoolib.git</p></blockquote>
+
+
+<p>Change the url of the repo like that:</p>
+
+<blockquote><p>[submodule &#8220;supercoolib&#8221;]<br/>           path = lib/supercoolib<br/>           url = https://github.com/yourusername/supercoolib.git</p></blockquote>
+
+
+<p>Now tell git to update his internal reference:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git submodule sync</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then init(if you didn&#8217;t already) and update the submodules:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git submodule init
+</span><span class='line'>$ git submodule update</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Don&#8217;t forget to checkout the branch inside the submodule (remember? submodules have a detached HEAD):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd lib/supercoolib
+</span><span class='line'>$ git checkout master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check if everything is working and finally commit your changes ;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Book review: Programming iOS 4]]></title>
+    <link href="http://stirredbits.com/blog/2012/02/18/book-review-programming-ios-4/"/>
+    <updated>2012-02-18T12:36:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/02/18/book-review-programming-ios-4</id>
+    <content type="html"><![CDATA[<p>&#8220;Programming iOS 4&#8221; by Matt Neuburg is the best book about iOS SDK out there.</p>
+
+<p>If you find yourself lost in the official Apple documentation, this book can be your final glimmer of hope.<br/>
+The book is intended for intermediate programmers that already has some notions about OOP and, at least, a little of experience with C.</p>
+
+<p><a href="http://www.amazon.com/gp/product/1449388434/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=stirbits-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449388434"><img src="http://akamaicovers.oreilly.com/images/0636920010258/lrg.jpg" width="250" height="328"></a></p>
+
+<p>The book is divided in 6 section:</p>
+
+<ul>
+<li>The first section begins with a providential revise of basic C syntax (trust me, you need it, especially if you too accustomed to an high-level language). The other chapters in this section are dedicated to a basic OOP introduction and finally to an in-depth analysis of obj-c syntax.</li>
+<li>The second section is an introduction to XCode. It explores the tools for debugging, getting documentation and design the GUI for the app. Next it explains how to get a developer certificate to sign apps and run them on real devices, and what are the procedures to follow if you want to get published in the App store.</li>
+<li>The third sections is about Cocoa. It shows the basic types used around the framework and how to manually manage the memory (in iOS 5 the new mechanism, ARC, allows a semi-automatic management). Then it illustrates the major design-patterns you need to understand, once you got them it&#8217;s all downhill.</li>
+<li>The 4th part it&#8217;s all dedicated to views and animations. My suggestion it&#8217;s to skip that on first reading of the book because it&#8217;s really tough to get for a novice.</li>
+<li>The 5th part presents the basic controllers. You really need to understand this part before starting to write apps. However I have to admit the ViewControllers are covered best in other books I read before.</li>
+<li>The 6th part is definitely the worst. It explores some common frameworks in the sdk, but often it&#8217;s very superficial and useless. I suggest to completely skip this section and read about frameworks in their official documentation.</li>
+<li>The last part is indeed one of most useful: it covers basic networking, threads and asynchronous programming, json and xml parsing.</li>
+</ul>
+
+
+<p>Definitely a must have for every iOS programmer, I can&#8217;t wait for the next edition.</p>
+
+<p>Score: <strong><em>4/5</em></strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Embracing Imperfection]]></title>
+    <link href="http://stirredbits.com/blog/2012/02/10/embracing-imperfection/"/>
+    <updated>2012-02-10T19:23:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/02/10/embracing-imperfection</id>
+    <content type="html"><![CDATA[<p>The first lesson I learned as a startupper is &#8220;getting things done&#8221;.
+It&#8217;s easy to say, but <em>hard</em> to do so.</p>
+
+<p>The first things you are gonna deal with is that your personal preference in matter of framework, programming language and paradigms, usually doesn&#8217;t fit well with the rest of the team in terms of skills, taste, etc..<br/>
+In Metwit I rember the first dispute on this kind of topic was over the choice of framework which we would have used for rewritten the old php backend. I was (I am) a great ruby fan, so naturally I tried to encourage the adoption of Rails. My team all agreed that we should use a Geospatial database.<br/>
+Long story short: Django framework has in mainline a project called Geodjango and we finally decided to go with that, for the sake of <em>maintainability</em>. Turns out that it is far from perfect and a huge bottleneck.</p>
+
+<p><img class="left" src="http://stirredbits.com/images/rubik.png" width="267" height="405"></p>
+
+<p>The second thing you are gonna deal with is legacy code.<br/>
+When I joined Metwit my first job was to resume the development of the iPhone app. It was the first obj-c project of a young developer that then lefted the team. As you can well imagine, the code was bloated and it had tons of bugs. At the time I had two choices: a huge refactor or a complete rewritten of the project. I choosed the first.<br/>
+Turns out that few weeks later our application to SeedStartup incubation was accepted as long as we could provide an early demo. I could never finish a from scratch project in time, somy choice was right.</p>
+
+<p>The last thing you&#8217;re gonna deal with is your personal standards and exceptations.<br/>
+Doing an excellent work is always a matter of time. <em>Time</em> is most precious resource in a startup. Competitors are breathing down your neck. Shit happens every day. Finally you realized that you should have shipped your work yesterday. You&#8217;re fucked.<br/>
+So my advice is lower your exceptations, ship often and early, listen to your custumers and be ready to pivot fast. (Check out this <a href="http://theleanstartup.com/">book</a> if you want to learn about Lean Startup principles)</p>
+
+<blockquote><p>TL;DR Learn to deal with imperfection or you&#8217;re never getting things done.</p></blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello, World!]]></title>
+    <link href="http://stirredbits.com/blog/2012/01/19/hello-world/"/>
+    <updated>2012-01-19T01:00:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/01/19/hello-world</id>
+    <content type="html"><![CDATA[<p>Yeah, I know: the post title is over-used. But I like traditions.<br/>
+So&#8230; I&#8217;m Simone, 21. Currently I work at <a href="http://www.metwit.com">Metwit</a> as COO.</p>
+
+<p>I used to be a blogger, but then I took an arrow to the knee.<br/>
+As a new year&#8217;s resolution I promised myself to resume my writing job.<br/>
+After struggling for a while, finally I came up with a cool name for the new one&#8230; and here we are.</p>
+
+<p>I like books, movies and all the IT stuff. I know when the narwhal does bacon.<br/>
+Hope you&#8217;ll enjoy the show.</p>
+]]></content>
+  </entry>
+  
+</feed>

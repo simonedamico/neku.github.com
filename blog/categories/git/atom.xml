@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Stirred bits]]></title>
+  <link href="http://stirredbits.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://stirredbits.com/"/>
+  <updated>2012-11-21T19:11:56+01:00</updated>
+  <id>http://stirredbits.com/</id>
+  <author>
+    <name><![CDATA[Simone D'Amico]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to change a git submodule URL]]></title>
+    <link href="http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url/"/>
+    <updated>2012-03-14T18:50:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url</id>
+    <content type="html"><![CDATA[<p>Let me save you some headache today: if you're like me, you really <em>do</em> like keeping your git repo neat and clean using submodules for third party libraries. (Especially if the language you're using doesn't have something like CPAN or rubygem)</p>
+
+<p>Everything runs perfect untill you have to change one submodule URL.<br/>
+For istance: your submodule is a github repo and you can't wait for your pull request to been accepted, so you press the fork button and commit the patch in your private repo. Now what?</p>
+
+<p>Let 'yourproject' be your git working directory, 'supercoolib' the submodule and 'yourusername' your github username. Open with an editor of your choice (in my case emacs) the .gitmodules file (usually is located at the root of the repo):</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd yourproject
+</span><span class='line'>$ emacs .gitmodule</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You should see something like this:
+<blockquote><p>[submodule "supercoolib"]</p></p><p><pre><code>       path = lib/supercoolib<br/>       url = https://github.com/anotherusername/supercoolib.git<br/></code></pre></p><p><p></p></blockquote></p>
+
+<p>Change the url of the repo like that:
+<blockquote><p>[submodule "supercoolib"]</p></p><p><pre><code>       path = lib/supercoolib<br/>       url = https://github.com/yourusername/supercoolib.git<br/></code></pre></p><p><p></p></blockquote></p>
+
+<p>Now tell git to update his internal reference:
+<code>
+$ git submodule sync
+</code></p>
+
+<p>And then init(if you didn't already) and update the submodules:
+<code>
+$ git submodule init
+$ git submodule update
+</code></p>
+
+<p>Don't forget to checkout the branch inside the submodule (remember? submodules have a detached HEAD):
+<code>
+$ cd lib/supercoolib
+$ git checkout master
+</code>
+Check if everything is working and finally commit your changes ;)</p>
+]]></content>
+  </entry>
+  
+</feed>

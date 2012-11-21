@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: chef | Stirred bits]]></title>
+  <link href="http://stirredbits.com/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://stirredbits.com/"/>
+  <updated>2012-11-21T19:11:56+01:00</updated>
+  <id>http://stirredbits.com/</id>
+  <author>
+    <name><![CDATA[Simone D'Amico]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bootstrapping chef server in Vagrant]]></title>
+    <link href="http://stirredbits.com/blog/2012/11/21/bootstrapping-chef-server-in-vagrant/"/>
+    <updated>2012-11-21T17:48:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/11/21/bootstrapping-chef-server-in-vagrant</id>
+    <content type="html"><![CDATA[<p>Installing a <a href="http://opscode.com">chef</a> server for learning  porpoise could be quite an annoying task.<br/>
+Dear devops fellows, fear no more, in our rescue come <a href="http://vagrantup.com">Vagrant</a> a very nice tool that let us spawn and manage virtual machines through Virtual box. <br/>
+Cherry on the cake? It integrates easily with chef: you can either specify a cookbook path and a runlist or a proper chef server.</p>
+
+<p>On my <a href="https://github.com/Neku/vagrant-chef-server-bootstrap">github repo</a> you can find a vagrant project to bootstrap a chef server though chef solo (inception :P) with the latest cookbooks available at opscode.<br/>
+A simple <code>vagrant up</code> and you have a chef-server ready to play with.</p>
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+</feed>

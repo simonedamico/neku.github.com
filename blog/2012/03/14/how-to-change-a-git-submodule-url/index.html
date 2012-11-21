@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to change a git submodule URL - Stirred bits</title>
+  <meta name="author" content="Simone D'Amico">
+
+  
+  <meta name="description" content="Let me save you some headache today: if you&#8217;re like me, you really do like keeping your git repo neat and clean using submodules for third &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Stirred bits" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28456365-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Stirred bits</a></h1>
+  
+    <h2>Stirred toughts from a shaken entrapreneur.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:stirredbits.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to Change a Git Submodule URL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-14T18:50:00+01:00" pubdate data-updated="true">Mar 14<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Let me save you some headache today: if you&#8217;re like me, you really <em>do</em> like keeping your git repo neat and clean using submodules for third party libraries. (Especially if the language you&#8217;re using doesn&#8217;t have something like CPAN or rubygem)</p>
+
+<p>Everything runs perfect untill you have to change one submodule URL.<br/>
+For istance: your submodule is a github repo and you can&#8217;t wait for your pull request to been accepted, so you press the fork button and commit the patch in your private repo. Now what?</p>
+
+<p>Let &#8216;yourproject&#8217; be your git working directory, &#8216;supercoolib&#8217; the submodule and &#8216;yourusername&#8217; your github username. Open with an editor of your choice (in my case emacs) the .gitmodules file (usually is located at the root of the repo):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd yourproject
+</span><span class='line'>$ emacs .gitmodule</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should see something like this:</p>
+
+<blockquote><p>[submodule &#8220;supercoolib&#8221;]<br/>           path = lib/supercoolib<br/>           url = https://github.com/anotherusername/supercoolib.git</p></blockquote>
+
+
+<p>Change the url of the repo like that:</p>
+
+<blockquote><p>[submodule &#8220;supercoolib&#8221;]<br/>           path = lib/supercoolib<br/>           url = https://github.com/yourusername/supercoolib.git</p></blockquote>
+
+
+<p>Now tell git to update his internal reference:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git submodule sync</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then init(if you didn&#8217;t already) and update the submodules:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git submodule init
+</span><span class='line'>$ git submodule update</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Don&#8217;t forget to checkout the branch inside the submodule (remember? submodules have a detached HEAD):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd lib/supercoolib
+</span><span class='line'>$ git checkout master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check if everything is working and finally commit your changes ;)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Simone D'Amico</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-14T18:50:00+01:00" pubdate data-updated="true">Mar 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url/" data-via="damicosimone" data-counturl="http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/18/book-review-programming-ios-4/" title="Previous Post: Book review: Programming iOS 4">&laquo; Book review: Programming iOS 4</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/11/21/bootstrapping-chef-server-in-vagrant/" title="next Post: Bootstrapping chef server in Vagrant">Bootstrapping chef server in Vagrant &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/21/bootstrapping-chef-server-in-vagrant/">Bootstrapping chef server in Vagrant</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/14/how-to-change-a-git-submodule-url/">How to change a git submodule URL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/18/book-review-programming-ios-4/">Book review: Programming iOS 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/10/embracing-imperfection/">Embracing Imperfection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/19/hello-world/">Hello, World!</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("damicosimone", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/damicosimone" class="twitter-follow-button" data-show-count="false">Follow @damicosimone</a>
+  
+</section>
+
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/neku">@neku</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'neku',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+<section>
+  <h1>About Me</h1>
+  <img src="/images/me.jpg" width="150" height="150">
+  <p>I'm Simone D'Amico, 21.<br>
+	 I work at Metwit as COO.</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Simone D'Amico -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'stirredbits';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url/';
+        var disqus_url = 'http://stirredbits.com/blog/2012/03/14/how-to-change-a-git-submodule-url/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

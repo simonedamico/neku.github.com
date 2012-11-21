@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Agile Development | Stirred bits]]></title>
+  <link href="http://stirredbits.com/blog/categories/agile-development/atom.xml" rel="self"/>
+  <link href="http://stirredbits.com/"/>
+  <updated>2012-11-21T19:11:56+01:00</updated>
+  <id>http://stirredbits.com/</id>
+  <author>
+    <name><![CDATA[Simone D'Amico]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Embracing Imperfection]]></title>
+    <link href="http://stirredbits.com/blog/2012/02/10/embracing-imperfection/"/>
+    <updated>2012-02-10T19:23:00+01:00</updated>
+    <id>http://stirredbits.com/blog/2012/02/10/embracing-imperfection</id>
+    <content type="html"><![CDATA[<p>The first lesson I learned as a startupper is "getting things done".
+It's easy to say, but <em>hard</em> to do so.</p>
+
+<p>The first things you are gonna deal with is that your personal preference in matter of framework, programming language and paradigms, usually doesn't fit well with the rest of the team in terms of skills, taste, etc..<br/>
+In Metwit I rember the first dispute on this kind of topic was over the choice of framework which we would have used for rewritten the old php backend. I was (I am) a great ruby fan, so naturally I tried to encourage the adoption of Rails. My team all agreed that we should use a Geospatial database.<br/>
+Long story short: Django framework has in mainline a project called Geodjango and we finally decided to go with that, for the sake of <em>maintainability</em>. Turns out that it is far from perfect and a huge bottleneck.</p>
+
+<p><img class="left" src="/images/rubik.png" width="267" height="405"></p>
+
+<p>The second thing you are gonna deal with is legacy code.<br/>
+When I joined Metwit my first job was to resume the development of the iPhone app. It was the first obj-c project of a young developer that then lefted the team. As you can well imagine, the code was bloated and it had tons of bugs. At the time I had two choices: a huge refactor or a complete rewritten of the project. I choosed the first.<br/>
+Turns out that few weeks later our application to SeedStartup incubation was accepted as long as we could provide an early demo. I could never finish a from scratch project in time, somy choice was right.</p>
+
+<p>The last thing you're gonna deal with is your personal standards and exceptations.<br/>
+Doing an excellent work is always a matter of time. <em>Time</em> is most precious resource in a startup. Competitors are breathing down your neck. Shit happens every day. Finally you realized that you should have shipped your work yesterday. You're fucked.<br/>
+So my advice is lower your exceptations, ship often and early, listen to your custumers and be ready to pivot fast. (Check out this <a href="http://theleanstartup.com/">book</a> if you want to learn about Lean Startup principles)</p>
+
+<p><blockquote><p>TL;DR Learn to deal with imperfection or you're never getting things done.</p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>
